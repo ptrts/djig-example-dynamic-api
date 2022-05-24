@@ -59,7 +59,7 @@ publishing {
     }
     repositories {
         maven {
-            name = 's3Private'
+            name = 's3MavenRepo'
             url = 's3://maven.taruts.net'
             authentication {
                 register('aws', AwsImAuthentication)
