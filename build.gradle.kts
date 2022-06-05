@@ -1,17 +1,17 @@
 plugins {
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id 'java-library'
-    id 'maven-publish'
+    id("io.spring.dependency-management") version "1.0.11.RELEASE"
+    id("java-library")
+    id("maven-publish")
 }
 
-group = 'we.git-implementations'
-version = '001'
+group = "we.git-implementations"
+version = "001"
 
-sourceCompatibility = '17'
+java.sourceCompatibility = JavaVersion.VERSION_17
 
 configurations {
     compileOnly {
-        extendsFrom annotationProcessor
+        extendsFrom(configurations["annotationProcessor"])
     }
 }
 
@@ -23,35 +23,35 @@ repositories {
 dependencies {
 
     // Lombok
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
+    compileOnly("org.projectlombok:lombok")
+    annotationProcessor("org.projectlombok:lombok")
 
-    api 'org.springframework:spring-core'
-    api 'org.springframework:spring-beans'
-    api 'org.springframework:spring-context'
+    api("org.springframework:spring-core")
+    api("org.springframework:spring-beans")
+    api("org.springframework:spring-context")
 }
 
 dependencyManagement {
     imports {
-        mavenBom 'org.springframework.boot:spring-boot-dependencies:2.6.4'
+        mavenBom("org.springframework.boot:spring-boot-dependencies:2.6.4")
     }
 }
 
 publishing {
     publications {
-        register('jar', MavenPublication) { MavenPublication mavenPublication ->
+        create<MavenPublication>("jar") {
             // Плагин java (на базе которого сделан плагин java-library, который мы здесь используем) уже подготовил нам комплект для публикации
             // Такие заготовленные комплекты для публикации - это называется компоненты
-            from components.java
+            from(components["java"])
 
             versionMapping {
                 // Если у некой зависимости, в выбранном ее варианте, есть вот такой атрибут
                 //      org.gradle.usage=java-api
                 // то сделать ей версию как в
-                usage('java-api') {
+                usage("java-api") {
                     fromResolutionResult()
                 }
-                usage('java-runtime') {
+                usage("java-runtime") {
                     fromResolutionResult()
                 }
             }
@@ -59,10 +59,10 @@ publishing {
     }
     repositories {
         maven {
-            name = 's3MavenRepo'
-            url = 's3://maven.taruts.net'
+            name = "s3MavenRepo"
+            url = uri("s3://maven.taruts.net")
             authentication {
-                register('aws', AwsImAuthentication)
+                register("aws", AwsImAuthentication::class)
             }
         }
     }
