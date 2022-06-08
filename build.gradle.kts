@@ -62,6 +62,8 @@ publishing {
             name = "s3MavenRepo"
             url = uri("s3://maven.taruts.net")
             authentication {
+                // AwsImAuthentication means that the credentials are in an AWS profile on the computer
+                // Only the author of this project has those credentials and can upload dynamic-api artifacts
                 register("aws", AwsImAuthentication::class)
             }
         }
