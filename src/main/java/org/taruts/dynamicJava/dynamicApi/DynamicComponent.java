@@ -1,4 +1,4 @@
-package app.dynamic.api;
+package org.taruts.dynamicJava.dynamicApi;
 
 public interface DynamicComponent {
     String getMessage();
