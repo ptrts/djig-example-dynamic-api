@@ -4,7 +4,7 @@ plugins {
     id("maven-publish")
 }
 
-group = "we.git-implementations"
+group = "org.taruts.djig.example"
 version = "001"
 
 java.sourceCompatibility = JavaVersion.VERSION_17
@@ -26,9 +26,7 @@ dependencies {
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
 
-    api("org.springframework:spring-core")
-    api("org.springframework:spring-beans")
-    api("org.springframework:spring-context")
+    api("org.taruts.djig.dynamic-api:001")
 }
 
 dependencyManagement {

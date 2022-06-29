@@ -1,4 +1,4 @@
-package org.taruts.dynamicJava.dynamicApi.main;
+package org.taruts.djig.example.dynamicApi.main;
 
 /**
  * The main application must have a bean implementing this interface.

@@ -1,1 +1,1 @@
-rootProject.name = "dynamic-api"
+rootProject.name = "example-dynamic-api"

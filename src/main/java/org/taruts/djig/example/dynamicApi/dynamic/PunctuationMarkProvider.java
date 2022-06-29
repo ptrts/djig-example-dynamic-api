@@ -1,4 +1,4 @@
-package org.taruts.dynamicJava.dynamicApi.dynamic;
+package org.taruts.djig.example.dynamicApi.dynamic;
 
 public interface PunctuationMarkProvider extends DynamicComponent {
     String getPunctuationMark();
