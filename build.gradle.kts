@@ -44,6 +44,8 @@ publishing {
             // that the maven-publish can use. The component is named "java" after the java plugin.
             from(components["java"])
 
+            artifactId = "dynamic-api"
+
             // Also we use the plugin io.spring.dependency-management.
             // This plugin enables us not to specify versions manually for those dependencies of the project
             // that Spring libraries work with.
