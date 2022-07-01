@@ -26,7 +26,7 @@ dependencies {
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
 
-    api("org.taruts.djig.dynamic-api:001")
+    api("org.taruts.djig:dynamic-api:001")
 }
 
 dependencyManagement {
@@ -60,6 +60,7 @@ publishing {
         }
     }
     repositories {
+        mavenLocal()
         maven {
             name = "s3MavenRepo"
             url = uri("s3://maven.taruts.net")
