@@ -26,13 +26,17 @@ dependencies {
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
 
-    api("org.taruts.djig:dynamic-api:001")
+    api("org.taruts.djig:djig-dynamic-api:001")
 }
 
 dependencyManagement {
     imports {
         mavenBom("org.springframework.boot:spring-boot-dependencies:2.7.0")
     }
+}
+
+configure<JavaPluginExtension> {
+    withSourcesJar()
 }
 
 publishing {
@@ -43,8 +47,6 @@ publishing {
             // The maven-publish plugin can create publications from components.
             // that the maven-publish can use. The component is named "java" after the java plugin.
             from(components["java"])
-
-            artifactId = "dynamic-api"
 
             // Also we use the plugin io.spring.dependency-management.
             // This plugin enables us not to specify versions manually for those dependencies of the project
