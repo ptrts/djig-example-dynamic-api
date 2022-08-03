@@ -26,7 +26,7 @@ dependencies {
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
 
-    api("org.taruts.djig:djig-dynamic-api:001")
+    api("org.taruts.djig:djig-dynamic-api:1.0.0")
 }
 
 dependencyManagement {
